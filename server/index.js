@@ -3,9 +3,9 @@ const express = require('express');
 const cors = require('cors');
 // This Will Load The Environment Variables From The .env File
 require('dotenv').config();
-
 // Import The connectDB Function
 const connectDB = require('./config/connectDB');
+const cookieParser = require('cookie-parser');
 
 // Create The Express App
 const app = express();
@@ -21,6 +21,8 @@ app.use(
 );
 // This will allow us to access the request body as req.body in the routes
 app.use(express.json());
+// This will allow us to access the cookies from the request
+app.use(cookieParser());
 
 // Server Port (server url)
 const PORT = process.env.PORT || 8000;
