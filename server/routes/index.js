@@ -3,6 +3,7 @@ const registerUser = require('../controller/registerUser');
 const checkEmail = require('../controller/checkEmail');
 const checkPassword = require('../controller/checkPassword');
 const userDetails = require('../controller/userDetails');
+const logout = require('../controller/logout');
 // Create a new instance of express router
 // This router will hold the routes for your app, and you can use it to manage your requests more easily.
 const router = express.Router();
@@ -15,5 +16,7 @@ router.post('/email', checkEmail);
 router.post('/password', checkPassword);
 // Login User Details
 router.get('/user-details', userDetails);
+// logout user
+router.get('/logout', logout);
 
 module.exports = router;

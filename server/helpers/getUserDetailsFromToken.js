@@ -16,7 +16,7 @@ const getUserDetailsFromToken = async token => {
 		const decode = await jwt.verify(token, process.env.JWT_SECRET_KEY);
 
 		// The decoded token will have the user id. We will use the user id to get the user details from the database.
-		const user = await UserModel.findById(decode.id);
+		const user = await UserModel.findById(decode.id).select('-password');
 		return user;
 };
 
